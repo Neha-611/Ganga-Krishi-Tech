@@ -1,0 +1,51 @@
+<!-- editor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocxDash - Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="./images/DocxDash.png">
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="firebase-config.js"></script>
+  <script defer src="editor.js"></script>
+</head>
+<body>
+  <div class="editor-container">
+    <div class="editor-header">
+        <div class="editor-header">
+            <img src="logo.png" alt="Docs Clone Logo" class="logo">
+            <h1>Docs Clone</h1>
+            <button id="logout-button">Logout</button>
+          </div>
+          
+      <h1>DocsxDash</h1>
+      <button id="logout-button">Logout</button>
+    </div>
+    <div class="toolbar">
+      <button onclick="document.execCommand('bold')"><b>B</b></button>
+      <button onclick="document.execCommand('italic')"><i>I</i></button>
+      <button onclick="document.execCommand('underline')"><u>U</u></button>
+      <button onclick="document.execCommand('justifyLeft')">Left</button>
+      <button onclick="document.execCommand('justifyCenter')">Center</button>
+      <button onclick="document.execCommand('justifyRight')">Right</button>
+      <select onchange="document.execCommand('fontName', false, this.value)">
+        <option value="Arial">Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+      <select onchange="document.execCommand('fontSize', false, this.value)">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </div>
+    <iframe id="editor" contenteditable="true"></iframe>
+  </div>
+</body>
+</html>
